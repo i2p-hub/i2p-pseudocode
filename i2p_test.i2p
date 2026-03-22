@@ -28,7 +28,7 @@ START i2p_test_program
     LET sum = 5 + 3
     LET difference = 10 - 4
     LET product = 6 * 7
-    LET quotient = 10 / 2.1
+    LET quotient = 12 / 2.5
     LET floor_div = 10 // 3
     LET remainder = 10 % 3
     LET power = 2 ** 3

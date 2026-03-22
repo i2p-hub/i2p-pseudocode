@@ -94,10 +94,10 @@
           "match": "^\\s*(START)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.terminator.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "entity.name.function.pseudocode"
+              "name": "entity.name.function"
             }
           }
         },
@@ -106,10 +106,10 @@
           "match": "^\\s*(END)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.terminator.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "entity.name.function.pseudocode"
+              "name": "entity.name.function"
             }
           }
         }
@@ -123,10 +123,10 @@
           "begin": "^\\s*(GET)\\s+([A-Za-z_][A-Za-z0-9_]*)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.io.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "variable.other.readwrite.pseudocode"
+              "name": "variable.other"
             }
           },
           "end": "\\s*$",
@@ -135,7 +135,7 @@
               "match": "\\b(FROM)\\b",
               "captures": {
                 "1": {
-                  "name": "keyword.control.io.pseudocode"
+                  "name": "keyword.control"
                 }
               }
             },
@@ -154,7 +154,7 @@
           "begin": "^\\s*(PUT)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.io.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -164,7 +164,7 @@
               "match": "\\b(TO)\\b",
               "captures": {
                 "1": {
-                  "name": "keyword.control.io.pseudocode"
+                  "name": "keyword.control"
                 }
               }
             },
@@ -183,13 +183,13 @@
           "begin": "^\\s*(LET)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(=)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.assignment.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "variable.other.assignment.pseudocode"
+              "name": "variable.other"
             },
             "3": {
-              "name": "keyword.operator.assignment.pseudocode"
+              "name": "keyword.operator"
             }
           },
           "end": "\\s*$",
@@ -210,24 +210,25 @@
           "begin": "^\\s*(CALL)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.call.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "entity.name.function.pseudocode"
+              "name": "entity.name.function"
             },
             "3": {
-              "name": "punctuation.section.group.begin.pseudocode"
+              "name": "punctuation.section.group.begin"
             }
           },
           "end": "(\\))\\s*$",
           "endCaptures": {
             "1": {
-              "name": "punctuation.section.group.end.pseudocode"
+              "name": "punctuation.section.group.end"
             }
           },
           "patterns": [
             {
-              "name": "punctuation.separator.arguments.pseudocode",
+              "name": "punctuation.separator"
+            ,
               "match": ","
             },
             {
@@ -240,10 +241,10 @@
           "match": "^\\s*(CALL)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.call.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "entity.name.function.pseudocode"
+              "name": "entity.name.function"
             }
           }
         }
@@ -257,7 +258,7 @@
           "begin": "^\\s*(IF)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.conditional.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -273,7 +274,7 @@
           "begin": "^\\s*(ELSEIF)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.conditional.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -289,7 +290,7 @@
           "match": "^\\s*(ELSE)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.conditional.pseudocode"
+              "name": "keyword.control"
             }
           }
         },
@@ -298,7 +299,7 @@
           "match": "^\\s*(ENDIF)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.conditional.pseudocode"
+              "name": "keyword.control"
             }
           }
         }
@@ -312,7 +313,7 @@
           "begin": "^\\s*(WHILE)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -321,7 +322,7 @@
               "match": "\\b(DO)\\b",
               "captures": {
                 "1": {
-                  "name": "keyword.control.loop.pseudocode"
+                  "name": "keyword.control"
                 }
               }
             },
@@ -335,10 +336,10 @@
           "begin": "^\\s*(DO)\\s*(?:\\.\\.\\.\\s*)?(WHILE)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -354,7 +355,7 @@
           "match": "^\\s*(DO)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           }
         },
@@ -363,7 +364,7 @@
           "match": "^\\s*(ENDWHILE)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           }
         },
@@ -372,13 +373,13 @@
           "begin": "^\\s*(FOR)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(=)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "variable.other.assignment.pseudocode"
+              "name": "variable.other"
             },
             "3": {
-              "name": "keyword.operator.assignment.pseudocode"
+              "name": "keyword.operator"
             }
           },
           "end": "\\s*$",
@@ -387,7 +388,7 @@
               "match": "\\b(TO|STEP)\\b",
               "captures": {
                 "1": {
-                  "name": "keyword.control.loop.pseudocode"
+                  "name": "keyword.control"
                 }
               }
             },
@@ -401,13 +402,13 @@
           "begin": "^\\s*(FOREACH)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s+(IN)\\b",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             },
             "2": {
-              "name": "variable.other.assignment.pseudocode"
+              "name": "variable.other"
             },
             "3": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           },
           "end": "\\s*$",
@@ -423,7 +424,7 @@
           "match": "^\\s*(ENDFOR)\\s*$",
           "captures": {
             "1": {
-              "name": "keyword.control.loop.pseudocode"
+              "name": "keyword.control"
             }
           }
         }
@@ -437,11 +438,11 @@
           "match": "\\b(?:AND|OR|NOT)\\b"
         },
         {
-          "name": "keyword.control.io.pseudocode",
+          "name": "keyword.control",
           "match": "\\b(?:FROM|TO)\\b"
         },
         {
-          "name": "keyword.control.loop.pseudocode",
+          "name": "keyword.control",
           "match": "\\b(?:STEP|IN|DO)\\b"
         }
       ]
@@ -450,14 +451,14 @@
     "comments": {
       "patterns": [
         {
-          "name": "comment.line.number-sign.pseudocode",
+          "name": "comment.line.number-sign",
           "begin": "(^[ \\t]+)?(#)",
           "beginCaptures": {
             "1": {
-              "name": "punctuation.whitespace.comment.leading.pseudocode"
+              "name": "punctuation.whitespace.comment.leading"
             },
             "2": {
-              "name": "punctuation.definition.comment.pseudocode"
+              "name": "punctuation.definition.comment"
             }
           },
           "end": "(?=$)"
@@ -466,22 +467,22 @@
     },
 
     "strings": {
-      "name": "string.quoted.double.pseudocode",
+      "name": "string.quoted.double",
       "begin": "\"",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.pseudocode"
+          "name": "punctuation.definition.string.begin"
         }
       },
       "end": "\"",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.pseudocode"
+          "name": "punctuation.definition.string.end"
         }
       },
       "patterns": [
         {
-          "name": "constant.character.escape.pseudocode",
+          "name": "constant.character.escape",
           "match": "\\\\."
         }
       ]
@@ -499,27 +500,27 @@
     "operators": {
       "patterns": [
         {
-          "name": "keyword.operator.arithmetic.exponent.pseudocode",
+          "name": "keyword.operator.arithmetic",
           "match": "\\*\\*"
         },
         {
-          "name": "keyword.operator.arithmetic.integer-division.pseudocode",
+          "name": "keyword.operator.arithmetic",
           "match": "//"
         },
         {
-          "name": "keyword.operator.comparison.pseudocode",
+          "name": "keyword.operator.comparison",
           "match": "(==|!=|>=|<=|>|<)"
         },
         {
-          "name": "keyword.operator.assignment.pseudocode",
+          "name": "keyword.operator",
           "match": "="
         },
         {
-          "name": "keyword.operator.concatenation.pseudocode",
+          "name": "keyword.operator",
           "match": "&"
         },
         {
-          "name": "keyword.operator.arithmetic.pseudocode",
+          "name": "keyword.operator.arithmetic",
           "match": "(\\+|-|\\*|/|%)"
         }
       ]
@@ -528,35 +529,35 @@
     "delimiters": {
       "patterns": [
         {
-          "name": "punctuation.separator.delimiter.pseudocode",
+          "name": "punctuation.separator",
           "match": ","
         },
         {
-          "name": "punctuation.separator.key-value.pseudocode",
+          "name": "punctuation.separator",
           "match": ":"
         },
         {
-          "name": "punctuation.section.group.begin.pseudocode",
+          "name": "punctuation.section.group.begin",
           "match": "\\("
         },
         {
-          "name": "punctuation.section.group.end.pseudocode",
+          "name": "punctuation.section.group.end",
           "match": "\\)"
         },
         {
-          "name": "punctuation.section.array.begin.pseudocode",
+          "name": "punctuation.section.array.begin",
           "match": "\\["
         },
         {
-          "name": "punctuation.section.array.end.pseudocode",
+          "name": "punctuation.section.array.end",
           "match": "\\]"
         },
         {
-          "name": "punctuation.section.map.begin.pseudocode",
+          "name": "punctuation.section.block.begin",
           "match": "\\{"
         },
         {
-          "name": "punctuation.section.map.end.pseudocode",
+          "name": "punctuation.section.block.end",
           "match": "\\}"
         }
       ]
@@ -565,7 +566,7 @@
     "identifiers": {
       "patterns": [
         {
-          "name": "variable.other.pseudocode",
+          "name": "variable.other",
           "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
         }
       ]
@@ -574,11 +575,11 @@
     "numeric-literal": {
       "patterns": [
         {
-          "name": "constant.numeric.real.pseudocode",
+          "name": "constant.numeric",
           "match": "(?<![A-Za-z0-9_])-?(?:0|[1-9][0-9_]*)\\.[0-9][0-9_]*(?![A-Za-z0-9_])"
         },
         {
-          "name": "constant.numeric.integer.pseudocode",
+          "name": "constant.numeric",
           "match": "(?<![A-Za-z0-9_])-?(?:0|[1-9][0-9_]*)(?![A-Za-z0-9_])"
         }
       ]
@@ -587,11 +588,11 @@
     "boolean-literal": {
       "patterns": [
         {
-          "name": "constant.language.boolean.true.pseudocode",
+          "name": "constant.language.boolean",
           "match": "\\bTrue\\b"
         },
         {
-          "name": "constant.language.boolean.false.pseudocode",
+          "name": "constant.language.boolean",
           "match": "\\bFalse\\b"
         }
       ]
