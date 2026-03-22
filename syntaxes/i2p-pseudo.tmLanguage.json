@@ -117,21 +117,45 @@
       "patterns": [
         {
           "name": "meta.output.statement.pseudocode",
-          "match": "^\\s*(PUT)\\s+(.+?)(?:\\s+(TO)\\s+(.+?))?\\s*$",
-          "captures": {
+          "begin": "^\\s*(PUT)\\b",
+          "beginCaptures": {
             "1": {
               "name": "keyword.control.io.pseudocode"
-            },
-            "2": {
-              "name": "meta.output.expression.pseudocode"
-            },
-            "3": {
-              "name": "keyword.control.io.pseudocode"
-            },
-            "4": {
-              "name": "meta.output.destination.pseudocode"
             }
-          }
+          },
+          "end": "\\s*$",
+          "contentName": "meta.output.expression.pseudocode",
+          "patterns": [
+            {
+              "match": "\\b(TO)\\b",
+              "captures": {
+                "1": {
+                  "name": "keyword.control.io.pseudocode"
+                }
+              }
+            },
+            {
+              "include": "#strings"
+            },
+            {
+              "include": "#placeholders"
+            },
+            {
+              "include": "#boolean-literal"
+            },
+            {
+              "include": "#numeric-literal"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#delimiters"
+            },
+            {
+              "include": "#identifiers"
+            }
+          ]
         }
       ]
     },
@@ -140,8 +164,8 @@
       "patterns": [
         {
           "name": "meta.assignment.statement.pseudocode",
-          "match": "^\\s*(LET)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(=)\\s*(.+?)\\s*$",
-          "captures": {
+          "begin": "^\\s*(LET)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(=)",
+          "beginCaptures": {
             "1": {
               "name": "keyword.control.assignment.pseudocode"
             },
@@ -150,11 +174,33 @@
             },
             "3": {
               "name": "keyword.operator.assignment.pseudocode"
-            },
-            "4": {
-              "name": "meta.assignment.expression.pseudocode"
             }
-          }
+          },
+          "end": "\\s*$",
+          "contentName": "meta.assignment.expression.pseudocode",
+          "patterns": [
+            {
+              "include": "#strings"
+            },
+            {
+              "include": "#placeholders"
+            },
+            {
+              "include": "#boolean-literal"
+            },
+            {
+              "include": "#numeric-literal"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#delimiters"
+            },
+            {
+              "include": "#identifiers"
+            }
+          ]
         }
       ]
     },
