@@ -1,13 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/refs/heads/master/tmlanguage.json",
   "name": "Pseudocode",
-  "scopeName": "source.pseudo",
+  "scopeName": "source.pseudocode",
   "patterns": [
     {
       "include": "#comments"
     },
     {
       "include": "#strings"
+    },
+    {
+      "include": "#placeholders"
     },
     {
       "include": "#statements"
@@ -20,6 +23,9 @@
     },
     {
       "include": "#operators"
+    },
+    {
+      "include": "#delimiters"
     },
     {
       "include": "#identifiers"
@@ -184,6 +190,9 @@
               "include": "#strings"
             },
             {
+              "include": "#placeholders"
+            },
+            {
               "include": "#boolean-literal"
             },
             {
@@ -191,6 +200,9 @@
             },
             {
               "include": "#operators"
+            },
+            {
+              "include": "#delimiters"
             },
             {
               "include": "#identifiers"
@@ -386,23 +398,11 @@
       ]
     },
 
-    "strings": {
-      "name": "string.quoted.double.pseudocode",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.pseudocode",
-          "match": "\\\\."
-        }
-      ]
-    },
-
     "comments": {
       "patterns": [
         {
-          "name": "comment.line.double-slash.pseudocode",
-          "begin": "(^[ \\t]+)?(//)",
+          "name": "comment.line.number-sign.pseudocode",
+          "begin": "(^[ \\t]+)?(#)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.whitespace.comment.leading.pseudocode"
@@ -412,21 +412,37 @@
             }
           },
           "end": "(?=$)"
-        },
+        }
+      ]
+    },
+
+    "strings": {
+      "name": "string.quoted.double.pseudocode",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.pseudocode"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.pseudocode"
+        }
+      },
+      "patterns": [
         {
-          "name": "comment.block.pseudocode",
-          "begin": "/\\*",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.begin.pseudocode"
-            }
-          },
-          "end": "\\*/",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.end.pseudocode"
-            }
-          }
+          "name": "constant.character.escape.pseudocode",
+          "match": "\\\\."
+        }
+      ]
+    },
+
+    "placeholders": {
+      "patterns": [
+        {
+          "name": "meta.placeholder.pseudocode",
+          "match": "<[^>]+>"
         }
       ]
     },
@@ -434,12 +450,65 @@
     "operators": {
       "patterns": [
         {
+          "name": "keyword.operator.arithmetic.exponent.pseudocode",
+          "match": "\\*\\*"
+        },
+        {
+          "name": "keyword.operator.arithmetic.integer-division.pseudocode",
+          "match": "//"
+        },
+        {
           "name": "keyword.operator.comparison.pseudocode",
-          "match": "(<=|>=|<>|<|>)"
+          "match": "(==|!=|>=|<=|>|<)"
+        },
+        {
+          "name": "keyword.operator.assignment.pseudocode",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.concatenation.pseudocode",
+          "match": "&"
         },
         {
           "name": "keyword.operator.arithmetic.pseudocode",
-          "match": "(\\+|-|\\*|/)"
+          "match": "(\\+|-|\\*|/|%)"
+        }
+      ]
+    },
+
+    "delimiters": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.delimiter.pseudocode",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.key-value.pseudocode",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.section.group.begin.pseudocode",
+          "match": "\\("
+        },
+        {
+          "name": "punctuation.section.group.end.pseudocode",
+          "match": "\\)"
+        },
+        {
+          "name": "punctuation.section.array.begin.pseudocode",
+          "match": "\\["
+        },
+        {
+          "name": "punctuation.section.array.end.pseudocode",
+          "match": "\\]"
+        },
+        {
+          "name": "punctuation.section.map.begin.pseudocode",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.map.end.pseudocode",
+          "match": "\\}"
         }
       ]
     },
@@ -456,20 +525,12 @@
     "numeric-literal": {
       "patterns": [
         {
-          "name": "constant.numeric.hex.pseudocode",
-          "match": "\\b0(x|X)[0-9a-fA-F][0-9a-fA-F_]*\\b"
+          "name": "constant.numeric.real.pseudocode",
+          "match": "(?<![A-Za-z0-9_])-?(?:0|[1-9][0-9_]*)\\.[0-9][0-9_]*(?![A-Za-z0-9_])"
         },
         {
-          "name": "constant.numeric.binary.pseudocode",
-          "match": "\\b0(b|B)[01][01_]*\\b"
-        },
-        {
-          "name": "constant.numeric.octal.pseudocode",
-          "match": "\\b0(o|O)?[0-7][0-7_]*\\b"
-        },
-        {
-          "name": "constant.numeric.decimal.pseudocode",
-          "match": "(?x)\\b(?:[0-9][0-9_]*\\.[0-9][0-9_]*|[0-9][0-9_]*\\.|\\.[0-9][0-9_]*|[0-9][0-9_]*)\\b"
+          "name": "constant.numeric.integer.pseudocode",
+          "match": "(?<![A-Za-z0-9_])-?(?:0|[1-9][0-9_]*)(?![A-Za-z0-9_])"
         }
       ]
     },
@@ -478,11 +539,11 @@
       "patterns": [
         {
           "name": "constant.language.boolean.true.pseudocode",
-          "match": "\\bTRUE\\b"
+          "match": "\\bTrue\\b"
         },
         {
           "name": "constant.language.boolean.false.pseudocode",
-          "match": "\\bFALSE\\b"
+          "match": "\\bFalse\\b"
         }
       ]
     }

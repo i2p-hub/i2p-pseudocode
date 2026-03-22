@@ -1,7 +1,7 @@
 {
     "name": "i2p-pseudocode",
     "displayName": "I2P Pseudocode",
-    "description": "Basic syntax highlight support for IB-styled pseudocode",
+    "description": "Syntax highlighting for Intro to Programming (I2P) pseudocode.",
     "version": "0.0.1",
     "publisher": "ciioprof0",
     "repository": {
@@ -18,23 +18,26 @@
     "contributes": {
         "languages": [
             {
-                "id": "pseudo",
+                "id": "i2p-pseudocode",
                 "aliases": [
-                    "Pseudocode",
-                    "pseudo"
+                    "I2P Pseudocode",
+                    "i2p-pseudocode",
+                    "pseudocode"
                 ],
                 "extensions": [
-                    ".pseudo"
-
+                    ".i2p",
+                    ".pseudo",
+                    ".pseudocode",
+                    ".psc"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
             {
-                "language": "pseudo",
-                "scopeName": "source.pseudo",
-                "path": "./syntaxes/pseudo.tmLanguage.json"
+                "language": "i2p-pseudocode",
+                "scopeName": "source.pseudocode",
+                "path": "./syntaxes/i2p-pseudo.tmLanguage.json"
             }
         ]
     }
