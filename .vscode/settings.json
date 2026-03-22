@@ -3,6 +3,7 @@
         "alnum",
         "hanzhi",
         "ibcs",
+        "METAVARIABLES",
         "noargs",
         "readwrite"
     ]

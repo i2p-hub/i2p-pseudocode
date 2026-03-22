@@ -1,0 +1,104 @@
+# ============================================
+# I2P Pseudocode Comprehensive Test File
+# ============================================
+
+
+START i2p_test_program
+
+    # === INPUT ===
+    GET user_name
+    GET user_age FROM keyboard
+    GET config_value FROM file_input
+
+    # === DATA TYPES ===
+    LET is_active = True
+    LET count = 10
+    LET temperature = 98.6
+    LET message = "Hello, World!"
+    LET empty_string = ""
+
+    LET numbers = [1, 2, 3, 4]
+    LET names = ["Alice", "Bob", "Charlie"]
+    LET empty_list = [ ]
+
+    LET user_map = {"name": "Alice", "age": 25}
+    LET empty_map = { }
+
+    # === ARITHMETIC OPERATORS ===
+    LET sum = 5 + 3
+    LET difference = 10 - 4
+    LET product = 6 * 7
+    LET quotient = 10 / 2
+    LET floor_div = 10 // 3
+    LET remainder = 10 % 3
+    LET power = 2 ** 3
+
+    # === RELATIONAL OPERATORS ===
+    LET is_equal = (5 == 5)
+    LET is_not_equal = (5 != 3)
+    LET is_greater = (10 > 5)
+    LET is_less = (3 < 7)
+    LET is_greater_equal = (5 >= 5)
+    LET is_less_equal = (4 <= 6)
+
+    # === LOGICAL OPERATORS ===
+    LET logical_and = (True AND False)
+    LET logical_or = (True OR False)
+    LET logical_not = (NOT False)
+
+    # === STRING CONCATENATION ===
+    LET full_message = "Hello, " & user_name
+
+    # === OUTPUT ===
+    PUT full_message
+    PUT "Age: " & user_age TO screen
+    PUT message TO file_output
+
+    # === FUNCTION CALLS ===
+    CALL print_message("Test message")
+    CALL calculate_sum(5, 10)
+    CALL process_data(user_name, user_age, numbers)
+
+    # === CONDITIONAL ===
+    IF user_age >= 18
+        PUT "User is an adult"
+    ELSEIF user_age == 17
+        PUT "User is almost an adult"
+    ELSE
+        PUT "User is a minor"
+    ENDIF
+
+    # === WHILE LOOP ===
+    LET counter = 0
+    WHILE counter < 3 DO
+        PUT "Counter: " & counter
+        LET counter = counter + 1
+    ENDWHILE
+
+    # === DO-WHILE LOOP ===
+    LET x = 0
+    DO
+        PUT "Do loop iteration: " & x
+        LET x = x + 1
+    WHILE x < 2
+
+    DO...WHILE x < 3
+
+    # === FOR LOOP ===
+    FOR i = 0 TO 5 STEP 1
+        PUT "For loop i: " & i
+    ENDFOR
+
+    # === FOREACH LOOP ===
+    FOREACH name IN names
+        PUT "Name: " & name
+    ENDFOR
+
+    # === PLACEHOLDERS / METAVARIABLES ===
+    LET <identifier> = <expression>
+    CALL <function>(<arg1>, <arg2>)
+    IF <condition>
+        PUT <value>
+    ENDIF
+
+END i2p_test_program
