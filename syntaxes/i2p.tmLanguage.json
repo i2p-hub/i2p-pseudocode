@@ -148,7 +148,7 @@
       "patterns": [
         {
           "name": "meta.input.statement.pseudocode",
-          "begin": "^\\s*(GET)\\s+([A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+)",
+          "begin": "^\\s*(GET)\\s+((?!(?:START|END|GET|PUT|LET|CALL|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -222,7 +222,7 @@
       "patterns": [
         {
           "name": "meta.assignment.statement.pseudocode",
-          "begin": "^\\s*(LET)\\s+([A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+)\\s*(=)",
+          "begin": "^\\s*(LET)\\s+((?!(?:START|END|GET|PUT|LET|CALL|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -444,7 +444,7 @@
         },
         {
           "name": "meta.loop.for.pseudocode",
-          "begin": "^\\s*(FOR)\\s+([A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+)\\s*(=)",
+          "begin": "^\\s*(FOR)\\s+((?!(?:START|END|GET|PUT|LET|CALL|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -494,7 +494,7 @@
         },
         {
           "name": "meta.loop.foreach.pseudocode",
-          "begin": "^\\s*(FOREACH)\\s+([A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+)\\s+(IN)\\b",
+          "begin": "^\\s*(FOREACH)\\s+((?!(?:START|END|GET|PUT|LET|CALL|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s+(IN)\\b",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -634,7 +634,24 @@
       "patterns": [
         {
           "name": "meta.placeholder.pseudocode",
-          "match": "<[^>]+>"
+          "begin": "<(?=[A-Za-z_])",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.section.placeholder.begin"
+            }
+          },
+          "end": ">",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.section.placeholder.end"
+            }
+          },
+          "patterns": [
+            {
+              "name": "variable.other.placeholder",
+              "match": "[A-Za-z_][A-Za-z0-9_ ]*"
+            }
+          ]
         }
       ]
     },
@@ -709,7 +726,7 @@
       "patterns": [
         {
           "name": "constant.language",
-          "match": "\\b[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+\\b"
+          "match": "\\b(?!(?:START|END|GET|PUT|LET|CALL|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*)\\b"
         },
         {
           "name": "variable.other",

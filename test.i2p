@@ -9,7 +9,7 @@ START i2p_test_program
     LET Pi_Value = 3.14159
     LET Capitalized_Words_With_Underscores = "This is a constant"
     LET UPPER_SNAKE_CASE_CONSTANT = 42
-    LET ALLCAPS = "Another constant"
+    LET ALLCAPS = "This is also a constant"
 
     # === INPUT ===
     GET user_name
