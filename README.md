@@ -1,17 +1,22 @@
 # i2p-pseudocode
-A syntax highlighter for I2P Pseudocode
+A syntax highlighter for I2P-style pseudocode in VS Code
 
 
-## Instal in VS Code (Install from VSIX) 
+## Installation
 
-### CLI
+Run the following commands to install the current version of the extension
 
-Run the following command to install the current version of the extension
-
-```bash
-code --install-extension
+### Windows
+```PowerShell
+Invoke-WebRequest -Uri "https://github.com/i2p-hub/i2p-pseudocode/raw/refs/heads/main/releases/i2p-pseudocode.vsix" -OutFile "i2p-pseudocode.vsix"
+code --install-extension i2p-pseudocode.vsix
 ```
 
+### Mac or Linux
+```bash
+curl -L -o i2p-pseudocode.vsix https://github.com/i2p-hub/i2p-pseudocode/raw/refs/heads/main/releases/i2p-pseudocode.vsix
+code --install-extension i2p-pseudocode.vsix
+```
 
 ## Acknowledgements
 
