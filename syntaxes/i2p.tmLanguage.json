@@ -578,7 +578,13 @@
               "name": "punctuation.definition.comment"
             }
           },
-          "end": "$"
+          "end": "$",
+          "patterns": [
+            {
+              "name": "keyword.codetag.notation",
+              "match": "\\b(?:TODO|FIXME|NOTE|BUG|HACK|XXX)\\b(?=:)?"
+            }
+          ]
         }
       ]
     },

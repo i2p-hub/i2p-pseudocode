@@ -102,6 +102,7 @@ START i2p_test_program
 
     # === COMMENTS ===
     # This is a single-line comment
+    # TODO: This is tagged comment
     LET x = 5  # This is an inline comment
     """
     This is a multi-line comment
