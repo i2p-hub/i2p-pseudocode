@@ -1,14 +1,15 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": "Run I2P Pseudocode Extension",
             "type": "extensionHost",
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}"
+                "--extensionDevelopmentPath=${workspaceFolder}",
+                "--open-file",
+                "${workspaceFolder}/test.i2p"
             ],
             "outFiles": []
         }
