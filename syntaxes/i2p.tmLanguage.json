@@ -689,7 +689,7 @@
     "identifiers": {
       "patterns": [
         {
-          "name": "constant.other",
+          "name": "constant.language",
           "match": "\\b[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+\\b"
         },
         {
