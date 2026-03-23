@@ -1,0 +1,64 @@
+{
+  "name": "i2p-pseudocode",
+  "displayName": "I2P Pseudocode",
+  "description": "Beginner-friendly syntax highlighting for I2P pseudocode. Designed for introduction to programming (I2P)students, this extension makes pseudocode easier to read and understand with clear highlighting of keywords, variables, and structure.",
+  "version": "0.1.0",
+  "publisher": "i2p-hub",
+  "author": {
+    "name": "mike"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Education"
+  ],
+  "keywords": [
+    "pseudocode",
+    "i2p",
+    "intro to programming",
+    "education",
+    "teaching",
+    "syntax highlighting"
+  ],
+  "bugs": {
+    "url": "https://github.com/i2p-hub/i2p-pseudocode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i2p-hub/i2p-pseudocode.git"
+  },
+  "homepage": "https://github.com/i2p-hub/i2p-pseudocode/blob/main/README.md",
+  "contributes": {
+    "languages": [
+      {
+        "id": "i2p-pseudocode",
+        "aliases": [
+          "I2P Pseudocode",
+          "i2p-pseudocode",
+          "pseudocode"
+        ],
+        "extensions": [
+          ".i2p",
+          ".pseudo"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "i2p-pseudocode",
+        "scopeName": "source.pseudocode",
+        "path": "./syntaxes/i2p.tmLanguage.json"
+      }
+    ]
+  }
+}

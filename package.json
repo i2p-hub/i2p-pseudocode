@@ -1,20 +1,29 @@
 {
     "name": "i2p-pseudocode",
-    "displayName": "I2P Pseudocode",
-    "description": "Syntax highlighting for Intro to Programming (I2P) pseudocode.",
     "version": "0.0.1",
-    "publisher": "ciioprof0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/i2p-hub/i2p-pseudocode.git"
-    },
+    "publisher": "i2p-hub",
     "engines": {
         "vscode": "^1.25.0"
     },
+    "license": "SEE LICENSE IN LICENSE",
+    "displayName": "I2P Pseudocode",
+    "description": "Syntax highlighting for Intro to Programming (I2P) pseudocode.",
     "categories": [
         "Programming Languages",
         "Education"
     ],
+    "keywords": [
+        "i2p",
+        "it-140",
+        "pseudocode",
+        "syntax highlighting",
+        "programming languages",
+        "education"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/i2p-hub/i2p-pseudocode.git"
+    },
     "contributes": {
         "languages": [
             {
