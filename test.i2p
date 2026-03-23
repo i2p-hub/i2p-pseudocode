@@ -7,6 +7,8 @@ START i2p_test_program
 
     # === CONSTANTS ===
     LET Pi_Value = 3.14159
+    LET Capitalized_Words_With_Underscores = "This is a constant"
+    LET ALL_UPPERCASE_CONSTANT = 42
 
     # === INPUT ===
     GET user_name
