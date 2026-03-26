@@ -1,6 +1,6 @@
 {
     "name": "i2p-pseudo",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "i2p-hub",
     "engines": {
         "vscode": "^1.25.0"
@@ -54,7 +54,7 @@
         ],
         "grammars": [
             {
-                "language": "pseudocode",
+                "language": "i2p-pseudo",
                 "scopeName": "source.pseudocode",
                 "path": "./syntaxes/i2p.tmLanguage.json"
             }
