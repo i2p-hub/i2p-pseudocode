@@ -1,36 +1,46 @@
 {
-    "name": "i2p-pseudocode",
-    "version": "0.1.0",
+    "name": "pseudocode",
+    "version": "0.1.1",
     "publisher": "i2p-hub",
     "engines": {
         "vscode": "^1.25.0"
     },
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "bugs": {
+        "url": "https://github.com/i2p-hub/pseudocode/issues"
+    },
     "displayName": "I2P Pseudocode",
-    "description": "Syntax highlighting for Intro to Programming (I2P) pseudocode.",
+    "description": "Syntax highlighting for I2P-style pseudocode.",
     "categories": [
         "Programming Languages",
         "Education"
     ],
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#2C3E50",
+        "theme": "dark"
+    },
+    "pricing": "Free",
     "keywords": [
+        "cs1",
         "i2p",
+        "i2p-hub",
         "it-140",
         "pseudocode",
         "syntax highlighting",
-        "programming languages",
-        "education"
+        "introduction to programming"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/i2p-hub/i2p-pseudocode.git"
+        "url": "https://github.com/i2p-hub/pseudocode.git"
     },
     "contributes": {
         "languages": [
             {
-                "id": "i2p-pseudocode",
+                "id": "pseudocode",
                 "aliases": [
                     "I2P Pseudocode",
-                    "i2p-pseudocode",
+                    "pseudocode",
                     "pseudocode"
                 ],
                 "extensions": [
@@ -44,7 +54,7 @@
         ],
         "grammars": [
             {
-                "language": "i2p-pseudocode",
+                "language": "pseudocode",
                 "scopeName": "source.pseudocode",
                 "path": "./syntaxes/i2p.tmLanguage.json"
             }

@@ -1,0 +1,22 @@
+START morning_check
+
+    LET FREEZING_POINT = 32
+    GET user_name
+    GET temperature FROM thermometer
+    LET is_cold = False
+
+    IF temperature <= FREEZING_POINT
+        LET is_cold = True
+        PUT "Good morning, " & user_name & "! Wear a coat."
+    ELSEIF temperature < 60
+        PUT "Good morning, " & user_name & "! Take a light jacket."
+    ELSE
+        PUT "Good morning, " & user_name & "! The weather looks nice."
+    ENDIF
+
+    WHILE is_cold == True DO
+        CALL remind_user("Bring gloves")
+        LET is_cold = False
+    ENDWHILE
+
+END morning_check
