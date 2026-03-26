@@ -1,5 +1,5 @@
 {
-    "name": "pseudocode",
+    "name": "i2p-pseudo",
     "version": "0.1.1",
     "publisher": "i2p-hub",
     "engines": {
@@ -9,7 +9,7 @@
     "bugs": {
         "url": "https://github.com/i2p-hub/pseudocode/issues"
     },
-    "displayName": "I2P Pseudocode",
+    "displayName": "I2P-Pseudocode",
     "description": "Syntax highlighting for I2P-style pseudocode.",
     "categories": [
         "Programming Languages",
@@ -37,7 +37,7 @@
     "contributes": {
         "languages": [
             {
-                "id": "pseudocode",
+                "id": "i2p-pseudo",
                 "aliases": [
                     "I2P Pseudocode",
                     "pseudocode",
