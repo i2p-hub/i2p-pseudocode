@@ -1,3 +1,14 @@
+## [0.1.4]
+
+- Added function-definition keyword support:
+   - DEFINE
+   - RETURN
+   - ENDFUNCTION
+- Added grammar rules for function declarations and return statements.
+- Ensured new function keywords are highlighted consistently with existing control keywords.
+- Prevented DEFINE, RETURN, and ENDFUNCTION from being tokenized as identifiers or constants.
+- Added function examples to the test file for regression checking.
+
 ## [0.1.3]
 
 - Fixed inconsistent syntax highlighting for function names in CALL expressions

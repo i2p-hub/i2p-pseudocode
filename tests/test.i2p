@@ -1,4 +1,4 @@
-# NOTE: To view highlighted text, install the `i2p-hub.i2p-pseudo` extension.
+# NOTE: To view higlighted text, install the `i2p-hub.pseudocode` extension.
 
 # ============================================
 # I2P Pseudocode Comprehensive Test File
@@ -102,6 +102,21 @@ START test_i2p
         PUT "Name: " & name
     ENDFOR
 
+    # === FUNCTION DEFINITION ===
+    DEFINE get_item(item, room, inventory)
+
+        IF item IN inventory
+            PUT "Item is already in your inventory."
+            RETURN inventory
+        ELSEIF item IN room
+            LET inventory = inventory + item
+            RETURN inventory
+        ELSE
+            RETURN inventory
+        ENDIF
+
+    ENDFUNCTION
+
     # === COMMENTS ===
     # This is a single-line comment
     # TODO: This is tagged comment
@@ -119,3 +134,5 @@ START test_i2p
     ENDIF
 
 END test_i2p
+
+
