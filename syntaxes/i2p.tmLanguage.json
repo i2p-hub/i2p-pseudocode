@@ -28,6 +28,9 @@
       "include": "#delimiters"
     },
     {
+      "include": "#call-expressions"
+    },
+    {
       "include": "#fallback-keywords"
     },
     {
@@ -88,10 +91,42 @@
           "include": "#delimiters"
         },
         {
+          "include": "#call-expressions"
+        },
+        {
           "include": "#fallback-keywords"
         },
         {
           "include": "#identifiers"
+        }
+      ]
+    },
+
+    "call-expressions": {
+      "patterns": [
+        {
+          "name": "meta.call.expression.pseudocode",
+          "match": "\\b(CALL)\\s+([A-Za-z_][A-Za-z0-9_]*)(?=\\s*\\()",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "entity.name.function"
+            }
+          }
+        },
+        {
+          "name": "meta.call.expression.noargs.pseudocode",
+          "match": "\\b(CALL)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "entity.name.function"
+            }
+          }
         }
       ]
     },
