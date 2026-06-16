@@ -133,6 +133,16 @@ START test_i2p
         PUT <value>
     ENDIF
 
+    # === SETUP KEYWORDS ===
+    CONFIGURE system_dependencies
+    INSTALL version_control_tools
+    REFRESH package_sources
+    REPAIR package_manager
+    RESTORE system_checkpoint
+    SETUP course_ide
+    SUPPRESS interactive_prompts
+    UPDATE installed_packages
+
 END test_i2p
 
 
