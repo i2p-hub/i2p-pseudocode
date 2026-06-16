@@ -1,3 +1,20 @@
+## [0.1.5]
+
+Addressed Issue #5: Added syntax highlighting support for I2P IDE setup keywords.
+
+- Added syntax highlighting support for I2P IDE setup keywords:
+
+  - `CONFIGURE`
+  - `INSTALL`
+  - `REFRESH`
+  - `REPAIR`
+  - `RESTORE`
+  - `SETUP`
+  - `SUPPRESS`
+  - `UPDATE`
+
+- Added setup keyword examples to `test.i2p` to verify highlighting behavior.
+
 ## [0.1.4]
 
 - Added function-definition keyword support:
