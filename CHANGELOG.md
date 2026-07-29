@@ -1,3 +1,18 @@
+## [0.2.0]
+
+- Expanded grammar for IT 140 automation pseudoscript directives and control flow while preserving existing CS1 highlighting.
+- Added structural/control keyword handling for:
+   - `BEGIN`, `PROCEDURE`, `ENDPROCEDURE`
+   - `FOR EACH`
+   - `WHEN`, `ENDWHEN`, `OTHERWISE`
+   - `TRY`, `CATCH`, `ENDCATCH`, `FINALLY`, `ENDTRY`
+   - `CONTINUE`, `STOP`
+- Added directive keyword scope support for automation commands, including compound `DEEP-MERGE`.
+- Added uppercase boolean literal support for `TRUE` and `FALSE` while retaining `True` and `False`.
+- Added `NONE` as a null/default literal.
+- Updated reserved-word exclusions so new keywords/directives are not tokenized as constants or identifiers.
+- Expanded `tests/test.i2p` with automation pseudoscript regression examples and status-value coverage.
+
 ## [0.1.4]
 
 - Added function-definition keyword support:

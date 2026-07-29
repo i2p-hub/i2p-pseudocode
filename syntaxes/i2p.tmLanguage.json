@@ -16,7 +16,13 @@
       "include": "#statements"
     },
     {
+      "include": "#automation-directives"
+    },
+    {
       "include": "#boolean-literal"
+    },
+    {
+      "include": "#null-literal"
     },
     {
       "include": "#numeric-literal"
@@ -65,6 +71,9 @@
           "include": "#conditional-statements"
         },
         {
+          "include": "#automation-control-statements"
+        },
+        {
           "include": "#loop-statements"
         },
         {
@@ -84,7 +93,13 @@
           "include": "#placeholders"
         },
         {
+          "include": "#automation-directives"
+        },
+        {
           "include": "#boolean-literal"
+        },
+        {
+          "include": "#null-literal"
         },
         {
           "include": "#numeric-literal"
@@ -138,7 +153,7 @@
       "patterns": [
         {
           "name": "keyword.control",
-          "match": "\\b(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN)\\b"
+          "match": "\\b(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH)\\b"
         },
         {
           "name": "keyword.operator.logical",
@@ -151,6 +166,21 @@
         {
           "name": "meta.program.start.pseudocode",
           "match": "^\\s*(START)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "entity.name.function"
+            },
+            "3": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.program.begin.pseudocode",
+          "match": "^\\s*(BEGIN)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(#.*)?$",
           "captures": {
             "1": {
               "name": "keyword.control"
@@ -184,7 +214,7 @@
       "patterns": [
         {
           "name": "meta.input.statement.pseudocode",
-          "begin": "^\\s*(GET)\\s+((?!(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))",
+          "begin": "^\\s*(GET)\\s+((?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -256,7 +286,7 @@
       "patterns": [
         {
           "name": "meta.assignment.statement.pseudocode",
-          "begin": "^\\s*(LET)\\s+((?!(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
+          "begin": "^\\s*(LET)\\s+((?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -409,6 +439,142 @@
         }
       ]
     },
+    "automation-control-statements": {
+      "patterns": [
+        {
+          "name": "meta.conditional.when.pseudocode",
+          "begin": "^\\s*(WHEN)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.condition.expression.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.conditional.endwhen.pseudocode",
+          "match": "^\\s*(ENDWHEN)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.conditional.otherwise.pseudocode",
+          "match": "^\\s*(OTHERWISE)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.exception.try.pseudocode",
+          "begin": "^\\s*(TRY)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.try.expression.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.exception.catch.pseudocode",
+          "begin": "^\\s*(CATCH)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.catch.expression.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.exception.endcatch.pseudocode",
+          "match": "^\\s*(ENDCATCH)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.exception.finally.pseudocode",
+          "match": "^\\s*(FINALLY)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.exception.endtry.pseudocode",
+          "match": "^\\s*(ENDTRY)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.flow.continue.pseudocode",
+          "match": "^\\s*(CONTINUE)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.flow.stop.pseudocode",
+          "match": "^\\s*(STOP)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        }
+      ]
+    },
     "loop-statements": {
       "patterns": [
         {
@@ -474,8 +640,77 @@
           }
         },
         {
+          "name": "meta.loop.for-each.pseudocode",
+          "begin": "^\\s*(FOR)\\s+(EACH)\\s+((?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s+(IN)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "keyword.control"
+            },
+            "3": {
+              "name": "constant.language"
+            },
+            "4": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.loop.collection.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.loop.for-each.pseudocode",
+          "begin": "^\\s*(FOR)\\s+(EACH)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s+(IN)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "keyword.control"
+            },
+            "3": {
+              "name": "variable.other"
+            },
+            "4": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.loop.collection.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.loop.for-each.descriptive.pseudocode",
+          "begin": "^\\s*(FOR)\\s+(EACH)\\b",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "keyword.control"
+            }
+          },
+          "end": "(?=#|$)",
+          "contentName": "meta.loop.each.expression.pseudocode",
+          "patterns": [
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
           "name": "meta.loop.for.pseudocode",
-          "begin": "^\\s*(FOR)\\s+((?!(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
+          "begin": "^\\s*(FOR)\\s+((?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s*(=)",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -525,7 +760,7 @@
         },
         {
           "name": "meta.loop.foreach.pseudocode",
-          "begin": "^\\s*(FOREACH)\\s+((?!(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s+(IN)\\b",
+          "begin": "^\\s*(FOREACH)\\s+((?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*))\\s+(IN)\\b",
           "beginCaptures": {
             "1": {
               "name": "keyword.control"
@@ -593,7 +828,19 @@
         },
         {
           "name": "keyword.control",
-          "match": "\\b(?:STEP|IN|DO)\\b"
+          "match": "\\b(?:STEP|IN|DO|EACH)\\b"
+        },
+        {
+          "name": "keyword.control",
+          "match": "\\b(?:WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP)\\b"
+        }
+      ]
+    },
+    "automation-directives": {
+      "patterns": [
+        {
+          "name": "keyword.other.directive.pseudocode",
+          "match": "\\b(?:ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b"
         }
       ]
     },
@@ -756,7 +1003,7 @@
       "patterns": [
         {
           "name": "constant.language",
-          "match": "\\b(?!(?:START|END|GET|PUT|LET|CALL|DEFINE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|ENDFUNCTION|FROM|TO|STEP|IN|AND|OR|NOT|True|False)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*)\\b"
+          "match": "\\b(?!(?:START|END|BEGIN|GET|PUT|LET|CALL|DEFINE|PROCEDURE|RETURN|IF|ELSEIF|ELSE|ENDIF|WHILE|DO|ENDWHILE|FOR|FOREACH|ENDFOR|WHEN|ENDWHEN|OTHERWISE|TRY|CATCH|ENDCATCH|FINALLY|ENDTRY|CONTINUE|STOP|ENDFUNCTION|ENDPROCEDURE|FROM|TO|STEP|IN|EACH|AND|OR|NOT|True|False|TRUE|FALSE|NONE|ACQUIRE|ADD|APPEND|APPLY|ATOMICALLY|ATTEMPT|BUILD|CLEAN|COMBINE|COPY|CREATE|DEEP-MERGE|DETERMINE|DISPLAY|FORCE|HIDE|INCLUDE|INCREMENT|INSTALL|MERGE|NEVER|PARSE|PREPEND|PRESERVE|PRINT|PROMPT|QUERY|READ|RECORD|REFRESH|REJECT|RELOAD|REMEDIATION|REMOVE|REPAIR|REPARSE|REQUIRE|RETRIEVE|RUN|SANITIZE|SCAN|SET|UPGRADE|UPSERT|VALIDATE|WRITE)\\b)(?:[A-Z][A-Za-z0-9]*(?:_[A-Z][A-Za-z0-9]*)+|[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*)\\b"
         },
         {
           "name": "variable.other",
@@ -780,16 +1027,65 @@
       "patterns": [
         {
           "name": "constant.language.boolean",
-          "match": "\\bTrue\\b"
-        },
+          "match": "\\b(?:True|False|TRUE|FALSE)\\b"
+        }
+      ]
+    },
+    "null-literal": {
+      "patterns": [
         {
-          "name": "constant.language.boolean",
-          "match": "\\bFalse\\b"
+          "name": "constant.language.null",
+          "match": "\\bNONE\\b"
         }
       ]
     },
     "function-statements": {
       "patterns": [
+        {
+          "name": "meta.function.procedure.pseudocode",
+          "begin": "^\\s*(PROCEDURE)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "entity.name.function"
+            },
+            "3": {
+              "name": "punctuation.section.group.begin"
+            }
+          },
+          "end": "(\\))(?=\\s*(#|$))",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.section.group.end"
+            }
+          },
+          "patterns": [
+            {
+              "name": "punctuation.separator",
+              "match": ","
+            },
+            {
+              "include": "#expression-patterns"
+            }
+          ]
+        },
+        {
+          "name": "meta.function.procedure.noargs.pseudocode",
+          "match": "^\\s*(PROCEDURE)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "entity.name.function"
+            },
+            "3": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
         {
           "name": "meta.function.define.pseudocode",
           "begin": "^\\s*(DEFINE)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()",
@@ -838,6 +1134,18 @@
         {
           "name": "meta.function.end.pseudocode",
           "match": "^\\s*(ENDFUNCTION)\\s*(#.*)?$",
+          "captures": {
+            "1": {
+              "name": "keyword.control"
+            },
+            "2": {
+              "name": "comment.line.number-sign"
+            }
+          }
+        },
+        {
+          "name": "meta.function.end.procedure.pseudocode",
+          "match": "^\\s*(ENDPROCEDURE)\\s*(#.*)?$",
           "captures": {
             "1": {
               "name": "keyword.control"

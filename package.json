@@ -1,6 +1,6 @@
 {
     "name": "i2p-pseudo",
-    "version": "0.1.4",
+    "version": "0.2.0",
     "publisher": "i2p-hub",
     "engines": {
         "vscode": "^1.25.0"

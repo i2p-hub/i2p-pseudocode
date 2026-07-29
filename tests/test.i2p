@@ -133,6 +133,90 @@ START test_i2p
         PUT <value>
     ENDIF
 
+    # === AUTOMATION PSEUDOSCRIPT KEYWORDS ===
+    BEGIN BOOTSTRAP
+
+    PROCEDURE example(arguments)
+        REQUIRE required_condition
+        SET changed = TRUE
+        SET unchanged = FALSE
+        LET fallback = NONE
+
+        FOR EACH item IN items
+            TRY
+                APPLY item
+            CATCH expected_failure
+                RECORD warning
+            ENDCATCH
+            FINALLY
+                CONTINUE
+            ENDTRY
+        ENDFOR
+
+        FOR EACH required system capability
+            VALIDATE required
+        ENDFOR
+
+        WHEN capability_version >= 1
+            DEEP-MERGE managed_settings
+        OTHERWISE
+            STOP
+        ENDWHEN
+
+        ACQUIRE lock
+        ADD package
+        APPEND item
+        APPLY template
+        ATOMICALLY WRITE config
+        ATTEMPT repair
+        BUILD artifact
+        CLEAN workspace
+        COMBINE values
+        COPY source
+        CREATE record
+        DETERMINE target
+        DISPLAY status
+        FORCE install
+        HIDE secret
+        INCLUDE defaults
+        INCREMENT retries
+        INSTALL dependency
+        MERGE updates
+        NEVER REJECT known_good
+        PARSE json
+        PREPEND header
+        PRESERVE formatting
+        PRINT output
+        PROMPT user
+        QUERY source
+        READ config
+        REFRESH cache
+        REJECT invalid_entry
+        RELOAD service
+        REMEDIATION required_fix
+        REMOVE stale_file
+        REPAIR installation
+        REPARSE document
+        RETRIEVE value
+        RUN command
+        SANITIZE input
+        SCAN system
+        UPGRADE package
+        UPSERT index
+        WRITE result
+
+        RETURN NONE
+    ENDPROCEDURE
+
+    LET status_notice = NOTICE
+    LET status_success = SUCCESS
+    LET status_error = ERROR
+    LET status_pass = PASS
+    LET status_partial = PARTIAL
+    LET status_fail = FAIL
+    LET status_ready = READY
+    LET status_action_required = ACTION_REQUIRED
+
+    END BOOTSTRAP
+
 END test_i2p
-
-
