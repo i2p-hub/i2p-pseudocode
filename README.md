@@ -17,6 +17,11 @@ Designed for introductory programming students, this extension helps you move fr
   - Assignment (`LET`)
   - Conditionals (`IF`, `ELSEIF`, `ELSE`, `ENDIF`)
   - Loops (`WHILE`, `FOR`, `FOREACH`)
+- **Automation pseudoscript vocabulary:**
+  - Procedure structure (`BEGIN`, `PROCEDURE`, `ENDPROCEDURE`)
+  - Extended control flow (`FOR EACH`, `TRY`/`CATCH`/`ENDCATCH`/`FINALLY`/`ENDTRY`, `WHEN`/`ENDWHEN`)
+  - Uppercase directives (for example `REQUIRE`, `SET`, `DEEP-MERGE`, `VALIDATE`)
+  - Literals (`TRUE`, `FALSE`, `NONE`, plus `True`/`False`)
 - **Inline and block comments**, including tagged comments:
   - `TODO`, `FIXME`, `NOTE`, etc.
 - **Placeholders / metavariables** using `<...>` for instructional scaffolding  
@@ -35,7 +40,7 @@ This example demonstrates:
 - Control flow (conditionals and loops)
 - Comments and placeholders
 
-A full test file is available in the repo: `tests\test.i2p`)
+A full test file is available in the repo: `tests/test.i2p`
 
 # 🌐 Works Everywhere
 
